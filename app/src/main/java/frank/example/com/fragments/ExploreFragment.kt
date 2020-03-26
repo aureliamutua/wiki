@@ -27,8 +27,8 @@ private const val ARG_PARAM2 = "param2"
  *
  */
 class ExploreFragment : Fragment() {
-    var searchCardView: CardView? = null
-    var exploreRecycler: RecyclerView? = null
+    private var searchCardView: CardView? = null
+    private var exploreRecycler: RecyclerView? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

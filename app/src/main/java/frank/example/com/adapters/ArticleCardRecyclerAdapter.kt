@@ -22,7 +22,7 @@ class ArticleCardRecyclerAdapter : RecyclerView.Adapter<CardHolder>() {
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardHolder {
-        var cardItem = LayoutInflater.from(parent?.context).inflate(R.layout.article_card_item, parent, false)
+        var cardItem = LayoutInflater.from(parent.context).inflate(R.layout.article_card_item, parent, false)
         return CardHolder(cardItem)
     }
 }

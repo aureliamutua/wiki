@@ -13,14 +13,22 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val  exploreFragment: ExploreFragment
-    private val  favoritesFragment: FavoritesFragment
-    private val  historyFragment: HistoryFragment
+    private val  exploreFragment: ExploreFragment = ExploreFragment()
+    private val  favoritesFragment: FavoritesFragment = FavoritesFragment()
+    private val  historyFragment: HistoryFragment = HistoryFragment()
 
-    init {
-        exploreFragment = ExploreFragment()
-        favoritesFragment = FavoritesFragment()
-        historyFragment = HistoryFragment()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+
+
+        navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.add(R.id.fragment_container, exploreFragment)
+        transaction.commit()
     }
 
     private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -38,16 +46,4 @@ class MainActivity : AppCompatActivity() {
         true
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)
-
-
-        navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
-
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.add(R.id.fragment_container, exploreFragment)
-        transaction.commit()
-    }
 }

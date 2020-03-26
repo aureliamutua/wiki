@@ -17,11 +17,14 @@ class ArticleActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState, persistentState)
         setContentView(R.layout.activity_article)
 
-        setSupportActionBar(toolbar)
+        //setSupportActionBar(toolbar)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return super.onOptionsItemSelected(item)
+        if (item.itemId == android.R.id.home) {
+            finish()
+        }
+        return  true
     }
 }
