@@ -37,8 +37,8 @@ class ExploreFragment : Fragment() {
         // Inflate the layout for this fragment
         var view = inflater.inflate(R.layout.fragment_explore, container, false)
 
-        searchCardView = view.findViewById<CardView>(R.id.search_card_view)
-        exploreRecycler = view.findViewById<RecyclerView>(R.id.explore_article_recycler)
+        searchCardView = view.findViewById(R.id.search_card_view)
+        exploreRecycler = view.findViewById(R.id.explore_article_recycler)
 
         searchCardView!!.setOnClickListener {
             val searchIntent = Intent(context, SearchActivity::class.java)
